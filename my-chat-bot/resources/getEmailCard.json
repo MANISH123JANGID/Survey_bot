@@ -1,0 +1,43 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Please enter your email address to continue.",
+            "wrap": true,
+            "fontType": "Default",
+            "size": "Large",
+            "weight": "Default"
+        },
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "Input.Text",
+                    "placeholder": "Enter Email Adresss",
+                    "id": "emailID",
+                    "separator": true,
+                    "isRequired": true,
+                    "label": "Email",
+                    "errorMessage": "Email is required",
+                    "spacing": "None"
+                }
+            ]
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit ",
+                    "style": "positive",
+                    "data":{
+                        "name":"delete_survey"
+                    }
+                }
+            ]
+        }
+    ]
+}

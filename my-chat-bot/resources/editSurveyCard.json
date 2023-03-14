@@ -1,0 +1,189 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "Update your survey",
+                    "wrap": true,
+                    "fontType": "Default",
+                    "size": "Large",
+                    "weight": "Default",
+                    "color": "Default",
+                    "separator": true
+                }
+            ]
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Plac",
+            "id": "Name",
+            "label": "Name",
+            "separator": true
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "Placeholder text",
+            "id": "email",
+            "label": "Email",
+            "style": "Email"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "JOINT-FAMILY",
+                    "value": "JOINT-FAMILY"
+                },
+                {
+                    "title": "NUCLEAR-FAMILY",
+                    "value": "NUCLEAR-FAMILY"
+                }
+            ],
+            "placeholder": "Select",
+            "label": "Family-Type",
+            "id": "family-type",
+            "isMultiSelect": true,
+            "style": "expanded"
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "totalmems",
+            "label": "Total Members",
+            "value": 0
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "below18",
+            "label": "Members (below age of 18)",
+            "min": 0
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "above18",
+            "label": "Members (above age of 18)",
+            "min": 0
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "employed",
+            "label": "Employed Members ",
+            "min": 0
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "numOfmales",
+            "label": "Number of Male",
+            "min": 0
+        },
+        {
+            "type": "Input.Number",
+            "placeholder": "Placeholder text",
+            "id": "numOfFemales",
+            "label": "Number of Female",
+            "min": 0
+        },
+        {
+            "type": "Input.Text",
+            "placeholder": "tex",
+            "id": "caste",
+            "label": "Caste"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "Hinduism",
+                    "value": "Hinduism"
+                },
+                {
+                    "title": "Islam",
+                    "value": "Islam"
+                },
+                {
+                    "title": "Sikhism",
+                    "value": "Sikhism"
+                },
+                {
+                    "title": "Christianity",
+                    "value": "Christianity"
+                },
+                {
+                    "title": "Jainism",
+                    "value": "Jainism"
+                },
+                {
+                    "title": "Buddhism",
+                    "value": "Buddhism"
+                },
+                {
+                    "title": "Tribal-Religion",
+                    "value": "Tribal-Religion"
+                },
+                {
+                    "title": "No religion",
+                    "value": "No religion"
+                }
+            ],
+            "placeholder": "Placeholder text",
+            "id": "religion",
+            "label": "Religion"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "choices": [
+                {
+                    "title": "Upto ₹2.5 Lakh",
+                    "value": "Upto ₹2.5 Lakh"
+                },
+                {
+                    "title": "₹2.5-5 Lakh",
+                    "value": "₹2.5-5 Lakh"
+                },
+                {
+                    "title": "₹5-10 Lakh",
+                    "value": "₹5-10 Lakh"
+                },
+                {
+                    "title": "₹10-20 Lakh",
+                    "value": "₹10-20 Lakh"
+                },
+                {
+                    "title": "₹20-50 Lakh",
+                    "value": "₹20-50 Lakh"
+                },
+                {
+                    "title": "₹50-99 Lakh",
+                    "value": "₹50-99 Lakh"
+                },
+                {
+                    "title": "₹1 Crore or above",
+                    "value": "₹1 Crore or above"
+                }
+            ],
+            "placeholder": "Placeholder text",
+            "id": "income",
+            "label": "Income Range",
+            "wrap": true
+        },
+        {
+            "type": "ActionSet",
+            "actions": [
+                {
+                    "type": "Action.Submit",
+                    "title": "Submit & Update",
+                    "style": "positive"
+                }
+            ]
+        }
+    ]
+}
