@@ -1,0 +1,95 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "Container",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Hey,",
+                                    "wrap": true,
+                                    "style": "heading",
+                                    "size": "ExtraLarge"
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "I am Candy, your survey bot!",
+                                    "wrap": true,
+                                    "fontType": "Default",
+                                    "style": "heading",
+                                    "weight": "Bolder",
+                                    "size": "Large",
+                                    "spacing": "None",
+                                    "separator": true
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Please select any survey to continue...",
+                                    "wrap": true,
+                                    "style": "heading",
+                                    "size": "Large",
+                                    "fontType": "Default",
+                                    "spacing": "Small",
+                                    "horizontalAlignment": "Left"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "ActionSet",
+                            "actions": [
+                                {
+                                    "type": "Action.Submit",
+                                    "title": "Population Survey",
+                                    "data": {
+                                        "name": "population"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "ActionSet",
+                            "actions": [
+                                {
+                                    "type": "Action.Submit",
+                                    "title": "Educational Survey",
+                                    "data": {
+                                        "name": "education"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "spacing": "Medium"
+                }
+            ],
+            "spacing": "Small",
+            "style": "emphasis"
+        }
+    ]
+}

@@ -12,30 +12,31 @@ const{
     Dialog
 }= require('botbuilder-dialogs');
 
- const {  CardFactory, MessageFactory } = require('botbuilder');
+ const {  CardFactory, MessageFactory, ConversationState } = require('botbuilder');
 
 
-const{EducationalDialog, EDUCATIONAL_DIALOG}= require('./educationaldialog');
-const{PopulationDialog, POPULATION_DIALOG}=require('./populationdialog');
+const{EducationalDialog, EDUCATIONAL_DIALOG}= require('./educationDialogs/educationaldialog');
+const{PopulationDialog, POPULATION_DIALOG}=require('./populationDialogs/populationdialog');
 // const{ParentDialog, PARENT_DIALOG}=require('./parentdialog');
 
-const startCard= require('../resources/startCard.json')
-const newCard= require('../resources/newCard.json')
+const startCard= require('../resources/commons/startCard.json')
 
 const ROOT_DIALOG= 'ROOT_DIALOG';
 const WATERFALL_DIALOG= 'WATERFALL_DIALOG';
 const CHOICE_PROMPT= 'CHOICE_PROMPT';   
 
 class rootDialog extends ComponentDialog{
-    constructor(){
+    constructor(userState, conversationState){
         super(ROOT_DIALOG);
         
+        this.userState = userState
+        this.conversationState = conversationState
+
         this.addDialog(new ChoicePrompt(CHOICE_PROMPT));
 
         this.addDialog(new EducationalDialog(EDUCATIONAL_DIALOG));
-        this.addDialog(new PopulationDialog(POPULATION_DIALOG));
-    //    this.addDialog(new ParentDialog(PARENT_DIALOG));
-
+        this.addDialog(new PopulationDialog(userState, conversationState));
+   
         this.addDialog(new WaterfallDialog(WATERFALL_DIALOG,[
             this.firstStep.bind(this),
             this.secondStep.bind(this),
@@ -54,29 +55,18 @@ class rootDialog extends ComponentDialog{
     }
     async firstStep(step){
         const choice = step.context.activity.text !== undefined ? step.context.activity.text : step.context.activity.value.name;
-
+        console.log("choice",choice)
         switch(choice){
             case 'population':
                 return await step.beginDialog(POPULATION_DIALOG);
-                break;
-            
             case 'education':
                 return await step.beginDialog(EDUCATIONAL_DIALOG);
-                break;
             default:
-               // return await step.beginDialog(PARENT_DIALOG);
                return await step.context.sendActivity({
                 attachments: [CardFactory.adaptiveCard(startCard)]
                })
         }
-
-        // await step.context.sendActivity({
-        //     text: 'Here is an Adaptive Card:',
-        //     attachments: [CardFactory.adaptiveCard(startCard)]
-        // });
-        // return Dialog.EndOfTurn;
     }
-
     async secondStep(step){
         return await step.endDialog();
     }

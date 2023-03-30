@@ -5,41 +5,48 @@ const educationsSchema= new mongoose.Schema({
         type:String,
         required:true,
     },
+    email:{
+        type:String,
+        lowercase:true,
+        required:true,
+    },
     qualification:{
         type:String,
-        enum:['Primary Education','Secondary Education','High School','Bachelors','Masters','Doctorate'],
+        enum:['Primary Education','Secondary Education','High School','Diploma','Bachelors','Masters','Doctorate'],
     },
-    collegeSchoolName:{
+    college:{
         type:String,
         required:true,
     }, 
-    gradesOrPercent:{
+    grades:{
         type:String,
         required:true,
     },
     placed:{
         type:String,
         required:true,
+
     },
-    investedAmount:{
+    package_:{
+        type:String,
+        required:true,
+    },  
+    invested:{
         type:String,
         enum:['Below ₹3 Lakh','₹3-5 Lakh','₹5-10 Lakh','₹10-15 Lakh','₹15-20 Lakh','₹20-30 Lakh','Above ₹30 Lakh']
     },
-    expectedPackage:{
+    campus_rating:{
         type:String,
         required:true,
     },
-    satisfied:{
+    opinion:{
         type:String,
         required:true,
     },
-    recommended:{
+    Status:{
         type:String,
-        required:true,
-    },
-    rating:{
-        type:String,
-        enum:['1 STAR','2 STAR','3 STAR','4 STAR','4.5 STAR','5 STAR']
+        enum:['Pending','Approved','Rejected'],
+        default:'Pending'
     }
 },{timestamps:true})
 

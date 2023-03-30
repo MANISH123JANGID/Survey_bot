@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 const { TeamsActivityHandler, MessageFactory, CardFactory } = require('botbuilder');
-const startCard= require('../resources/startCard.json')
+const startCard= require('../resources/commons/startCard.json')
 
 class Bot extends TeamsActivityHandler {
     constructor(userState, conversationState, dialog) {

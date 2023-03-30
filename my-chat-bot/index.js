@@ -66,7 +66,7 @@ const userState = new UserState(memoryStorage);
 
 const conversationState= new ConversationState(memoryStorage);
 
-const rootdialog = new rootDialog();
+const rootdialog = new rootDialog(userState, conversationState);
 
 const myBot = new Bot(userState, conversationState, rootdialog);
 
