@@ -1,0 +1,198 @@
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:40:52.930Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:40:52.940Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:40:52.942Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:05.078Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:05.079Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:05.081Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:11.194Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:11.196Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:11.197Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:47.043Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:47.046Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:47.049Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:52.115Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:52.117Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:52.119Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:57.294Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:57.296Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:41:57.297Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:42:09.848Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:42:09.850Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:42:09.851Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:26.334Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:26.337Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:26.339Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:32.761Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:32.764Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:32.766Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:36.948Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:36.949Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:36.951Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:43.007Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:43.011Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-07T09:44:43.013Z'
+}

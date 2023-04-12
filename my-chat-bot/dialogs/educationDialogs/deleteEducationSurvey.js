@@ -19,7 +19,7 @@ const {
 } = require('botbuilder-dialogs');
 
 class deleteSurvey extends HelpandCancel{
-    constructor(){
+    constructor(userState,conversationState,telemetryClient){
         super(DELETE_SURVEY);
 
         this.addDialog(new TextPrompt(TEXT_PROMPT));

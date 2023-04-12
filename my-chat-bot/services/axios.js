@@ -121,5 +121,12 @@ const deleteOldOTP= async (email) => {
         return deleted;
 }
 
+const saveImageDb= async(localFileName,filePath)=>{
+        const saved= await axios.post('http://localhost:3500/api/messages/saveImage',{localFileName,filePath})
+        if(saved){
+                console.log('image saved')
+        }
+}
+
 module.exports= {saveEducationSurvey,saveFamilyProfile,getStatusnDetails,saveReason,delete_Survey,editSurvey,checkMail,
-        SaveOTPnMail,verifyOTP,getStatusnDetailsOfEducation,delete_Survey_Edu,isEmailPresentEdu,editSurveyEdu,deleteOldOTP};
+        SaveOTPnMail,verifyOTP,getStatusnDetailsOfEducation,delete_Survey_Edu,isEmailPresentEdu,editSurveyEdu,deleteOldOTP,saveImageDb};

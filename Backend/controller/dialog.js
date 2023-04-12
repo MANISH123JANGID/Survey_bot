@@ -10,6 +10,11 @@ const nodeMailer= require('nodemailer');
 
 const mailGen= require('mailgen');
 
+const imgSchema=require('../Models/image')
+
+const path = require('path');
+const fs = require('fs');
+
 const familySurveyController= async(req,res) => {
     try{
         console.log(req.body);
@@ -272,6 +277,38 @@ const deleteOldOTP= async(req, res)=>{
     return res.status(200).json({message:"Error deleting"});
   }
 }
+
+const saveImage= async(req,res)=>{
+   try{
+        console.log(req.body)
+        const filePath = req.body.filePath;
+        console.log(filePath);
+        const image= fs.readFileSync(filePath)
+
+        console.log("this is the imagae",image)
+        const obj = {
+            name: req.body.localFileName,
+            image: {
+                data:image,
+                contentType: 'image/png'
+            }
+        }
+       await imgSchema.create(obj)
+        .then ((err, item) => {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                item.save();
+            }
+        });
+        return res.status(200).json({message:"saved successfully"});
+   }catch(err){
+        console.log(err);
+        return res.status(500).json({message:err})
+   }
+}
+
 module.exports={familySurveyController,educationSurveyController,getStatusnDetails,
      saveReason,deleteSurvey,editSurvey,isEmailPresent,saveOTPnMail,verifyOTP,getStatusnDetailsOfEducation,
-     deleteSurveyEdu,isEmailPresentEdu,editSurveyEdu,deleteOldOTP};
+     deleteSurveyEdu,isEmailPresentEdu,editSurveyEdu,deleteOldOTP,saveImage};

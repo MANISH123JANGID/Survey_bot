@@ -17,7 +17,7 @@ const {
 } = require('botbuilder-dialogs');
 
 class statusDialog extends HelpandCancel{
-    constructor(){
+    constructor(userState,conversationState,telemetryClient){
         super(STATUS_DIALOG);
 
         this.addDialog(new TextPrompt(TEXT_PROMPT));

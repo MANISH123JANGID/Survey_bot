@@ -1,0 +1,18 @@
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:01.884Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:16.583Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:23.269Z'
+}

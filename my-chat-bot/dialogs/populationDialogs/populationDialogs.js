@@ -19,13 +19,15 @@ const {
 } = require('botbuilder-dialogs');
 const { Channels } = require('botbuilder-core');
 
-const Education= require('../../educationProfile')
+// const Education= require('../../educationProfile')
 
-const {educationSurvey,EDUCATIONAL_SURVEY}= require('./educationSurvey')
+// const {educationSurvey,EDUCATIONAL_SURVEY}= require('./educationSurvey')
 
-const{statusDialog,STATUS_DIALOG}= require('./statusDialog')
-const {deleteSurvey,DELETE_SURVEY}= require('./deleteEducationSurvey')
-const{editSurvey,EDIT_SURVEY}=require('./editSurvey')
+// const{statusDialog,STATUS_DIALOG}= require('./statusDialog')
+// const {deleteSurvey,DELETE_SURVEY}= require('./deleteEducationSurvey')
+// const{editSurvey,EDIT_SURVEY}=require('./editSurvey')
+
+const{populationSurvey,POPULATION_SURVEY}= require('./populationSurvey')
 
 const {HelpandCancel}= require('../interruptHandler');
 
@@ -38,25 +40,26 @@ const CONFIRM_PROMPT = 'CONFIRM_PROMPT';
 const NAME_PROMPT = 'NAME_PROMPT';
 const NUMBER_PROMPT = 'NUMBER_PROMPT';
 const WATERFALL_DIALOG = 'WATERFALL_DIALOG';
-const EDUCATIONAL_DIALOG = 'EDUCATIONAL_DIALOG';
+const POPULATION_DIALOG = 'POPULATION_DIALOG';
 const FAMILY_TYPE= 'FAMILY_TYPE';
 const NUM_OF_MEMBERS = 'NUM_OF_MEMBERS';
 
-class EducationalDialog extends HelpandCancel {
-    constructor(userState,conversationState,telemetryClient){
-        super(EDUCATIONAL_DIALOG);
+class populationDialog extends HelpandCancel {
+    constructor(userState, conversationState,telemetryClient){
+        super(POPULATION_DIALOG);
 
         this.userState = userState
         this.conversationState = conversationState
         this.telemetryClient = telemetryClient
-        // this.addDialog(new rootDialog(ROOT_DIALOG));
-        this.addDialog(new educationSurvey(userState,conversationState,telemetryClient));
         
-        this.addDialog(new deleteSurvey(userState,conversationState,telemetryClient));
+        // this.addDialog(new rootDialog(ROOT_DIALOG));
+        this.addDialog(new populationSurvey(userState,conversationState,telemetryClient));
+        
+        // this.addDialog(new deleteSurvey());
 
-        this.addDialog(new statusDialog(userState,conversationState,telemetryClient));
+        // this.addDialog(new statusDialog());
 
-        this.addDialog(new editSurvey(userState,conversationState,telemetryClient));
+        // this.addDialog(new editSurvey());
 
         this.addDialog(new TextPrompt(NAME_PROMPT));
         this.addDialog(new ChoicePrompt(CHOICE_PROMPT));
@@ -80,31 +83,22 @@ class EducationalDialog extends HelpandCancel {
      * @param {*} turnContext
      * @param {*} accessor
      */
-    async run(context, accessor) {
-        const dialogSet = new DialogSet(accessor);
-        dialogSet.add(this);
-        const dialogContext = await dialogSet.createContext(context);
-        const result =await dialogContext.continueDialog();
-        if(result.status===DialogTurnStatus.empty){
-            await dialogContext.beginDialog(this.id);
-        }
-    }
-
+  
     async startSurveyStep(step){
         const optioncard=  await step.context.sendActivity({
             attachments:[CardFactory.adaptiveCard(OptionCard)]
         })
-        step.values.activityId= optioncard.id;
+        // step.values.activityId= optioncard.id;
         return Dialog.EndOfTurn
     }
 
     async startOrCancelStep(step) {
-        await step.context.deleteActivity(step.values.activityId);
+        // await step.context.deleteActivity(step.values.activityId);
         const choice= step.context.activity.value.name;
         console.log('in the educationdialog',choice, step.context.activity.value.name);
         switch(choice) {
             case 'new_survey':
-                return await step.beginDialog(EDUCATIONAL_SURVEY);
+                return await step.beginDialog(POPULATION_SURVEY);
             case 'status_details':
                 return await step.beginDialog(STATUS_DIALOG)
             case 'edit':
@@ -120,4 +114,4 @@ class EducationalDialog extends HelpandCancel {
     }
 }
 
-module.exports = {EducationalDialog,EDUCATIONAL_DIALOG}
+module.exports = {populationDialog,POPULATION_DIALOG}

@@ -21,7 +21,7 @@ const {
 } = require('botbuilder-dialogs');
 
 class editSurvey extends HelpandCancel{
-    constructor(){
+    constructor(userState, conversationState, telemetry){
         super(EDIT_SURVEY);
 
         this.addDialog(new TextPrompt(TEXT_PROMPT));

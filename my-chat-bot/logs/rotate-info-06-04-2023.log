@@ -1,0 +1,54 @@
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:01.884Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:01.891Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:01.893Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:16.583Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:16.585Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:16.586Z'
+}
+{
+  message: 'this is some error message',
+  level: 'error',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:23.269Z'
+}
+{
+  message: 'this is some error message',
+  level: 'debug',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:23.272Z'
+}
+{
+  message: 'this is some error message',
+  level: 'info',
+  label: 'CUSTOM_FORMAT',
+  timestamp: '2023-04-06T14:44:23.276Z'
+}

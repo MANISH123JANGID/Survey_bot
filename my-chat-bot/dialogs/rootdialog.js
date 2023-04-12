@@ -12,30 +12,33 @@ const{
     Dialog
 }= require('botbuilder-dialogs');
 
- const {  CardFactory, MessageFactory, ConversationState } = require('botbuilder');
+const {  CardFactory, MessageFactory, ConversationState } = require('botbuilder');
+
+const logger= require('../services/logger');
 
 
 const{EducationalDialog, EDUCATIONAL_DIALOG}= require('./educationDialogs/educationaldialog');
-const{PopulationDialog, POPULATION_DIALOG}=require('./populationDialogs/populationdialog');
+const{populationDialog, POPULATION_DIALOG}=require('./populationDialogs/populationDialogs');
 // const{ParentDialog, PARENT_DIALOG}=require('./parentdialog');
 
-const startCard= require('../resources/commons/startCard.json')
+const startCard= require('../resources/commons/startCard.json');
 
 const ROOT_DIALOG= 'ROOT_DIALOG';
 const WATERFALL_DIALOG= 'WATERFALL_DIALOG';
 const CHOICE_PROMPT= 'CHOICE_PROMPT';   
 
 class rootDialog extends ComponentDialog{
-    constructor(userState, conversationState){
+    constructor(userState, conversationState, telemetryClient){
         super(ROOT_DIALOG);
         
         this.userState = userState
         this.conversationState = conversationState
+        this.telemetryClient = telemetryClient
 
         this.addDialog(new ChoicePrompt(CHOICE_PROMPT));
 
-        this.addDialog(new EducationalDialog(EDUCATIONAL_DIALOG));
-        this.addDialog(new PopulationDialog(userState, conversationState));
+        this.addDialog(new EducationalDialog(userState,conversationState,telemetryClient));
+        this.addDialog(new populationDialog(userState, conversationState,telemetryClient));
    
         this.addDialog(new WaterfallDialog(WATERFALL_DIALOG,[
             this.firstStep.bind(this),
@@ -55,7 +58,6 @@ class rootDialog extends ComponentDialog{
     }
     async firstStep(step){
         const choice = step.context.activity.text !== undefined ? step.context.activity.text : step.context.activity.value.name;
-        console.log("choice",choice)
         switch(choice){
             case 'population':
                 return await step.beginDialog(POPULATION_DIALOG);

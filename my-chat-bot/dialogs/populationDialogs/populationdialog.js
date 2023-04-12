@@ -88,7 +88,6 @@ class PopulationDialog extends HelpandCancel {
      * @param {*} accessor
      */
    
-
     async startSurveyStep(step){  
         const opt=step.options;
         console.log('opt',opt);
@@ -219,7 +218,6 @@ class PopulationDialog extends HelpandCancel {
             const promptOptions= {prompt:"Please enter your email address.",retryPrompt:"Please enter a valid email address"}
             return await step.prompt(EMAIL_PROMPT,promptOptions);
         }
-       
     }
     async familyType(step){
         if(step.values.intent==='edit'){

@@ -8,8 +8,9 @@ const GetOtp= require('../../resources/commons/getOTP.json')
 const verifyotp= require('../../resources/commons/verifyOTP.json')
 const education_survey= require('../../resources/educationResources/education_survey.json')
 const startCard= require('../../resources/commons/startCard.json')
+const population_survey= require('../../resources/populationResources/populationSurveyCard.json')
  
-const EDUCATIONAL_SURVEY='EDUCATION_SURVEY';
+const POPULATION_SURVEY='POPULATION_SURVEY';
 const WATERFALL_DIALOG='WATERFALL_DIALOG';
 const TEXT_PROMPT="TEXT_PROMPT";
 const {
@@ -18,9 +19,13 @@ const {
     Dialog
 } = require('botbuilder-dialogs');
 
-class educationSurvey extends HelpandCancel{
-    constructor(userState,conversationState,telemetryClient){
-        super(EDUCATIONAL_SURVEY);
+class populationSurvey extends HelpandCancel{
+    constructor(userState, conversationState, telemetryClient){
+        super(POPULATION_SURVEY);
+
+        this.userState = userState
+        this.conversationState = conversationState
+        this.telemetryClient = telemetryClient
 
         this.addDialog(new TextPrompt(TEXT_PROMPT));
 
@@ -32,7 +37,11 @@ class educationSurvey extends HelpandCancel{
         ]));
         this.initialDialogId=WATERFALL_DIALOG;
     }
- 
+
+    // async getIdCard(step){
+    //     return await step.prompt(TEXT_PROMPT,'Please upload your Aadhar card image')
+    // }
+
     async sendOTP(step){
         console.log("step.options,",step.options);
 
@@ -43,20 +52,21 @@ class educationSurvey extends HelpandCancel{
             attachments:[CardFactory.adaptiveCard(GetOtp)]
         })
         step.values.intent="delete"
-         step.values.activityId=getotp.id;
+        //  step.values.activityId=getotp.id;
         return Dialog.EndOfTurn;
     }
     async verifyOTP(step){
-       if(step.values.intent==="delete"){
-         await step.context.deleteActivity(step.values.activityId);
-       }
+    //    if(step.values.intent==="delete"){
+    //      await step.context.deleteActivity(step.values.activityId);
+    //    }
         if(step.options.hasOwnProperty('case')){
             const verifyotp1= await step.context.sendActivity({
                 attachments:[CardFactory.adaptiveCard(verifyotp)]
             })
-             step.values.activityId= verifyotp1.id;
+            //  step.values.activityId= verifyotp1.id;
             return Dialog.EndOfTurn
         }else{
+            console.log(step.context.activity.value.fullName)
             step.values.name=step.context.activity.value.fullName;
             step.values.email= step.context.activity.value.emailID;
             console.log( step.values.email);
@@ -66,13 +76,13 @@ class educationSurvey extends HelpandCancel{
             const verifyotp1= await step.context.sendActivity({
                 attachments:[CardFactory.adaptiveCard(verifyotp)]
             })
-            step.values.activityId= verifyotp1.id;
+            // step.values.activityId= verifyotp1.id;
             return Dialog.EndOfTurn;
         }
     }
 
     async getDetails(step){
-        await step.context.deleteActivity(step.values.activityId);
+        // await step.context.deleteActivity(step.values.activityId);
         if(step.context.activity.value.name==="verify_otp"){
             const otp= step.context.activity.value.OTP;
             console.log('otp', otp);
@@ -82,11 +92,11 @@ class educationSurvey extends HelpandCancel{
             console.log("Verified",Verified);
             if(Verified.success===true){
                 const edusurvey= await step.context.sendActivity({
-                    attachments:[CardFactory.adaptiveCard(education_survey)]
+                    attachments:[CardFactory.adaptiveCard(population_survey)]
                 })
                 step.values.intent='verified';
-                step.values.activityId= edusurvey.id;
-                console.log(step.values.activityId)
+                // step.values.activityId= edusurvey.id;
+                // console.log(step.values.activityId)
                 return Dialog.EndOfTurn;
             }else{  
                 await step.prompt(TEXT_PROMPT,'Your OTP was incorrect. Please re-enter the correct OTP!')
@@ -107,11 +117,11 @@ class educationSurvey extends HelpandCancel{
     }
     
     async surveyCompleted(step){
-        console.log(step.values.intent);
-        if(step.values.intent==="verified"){
-            console.log(step.values.activityId)
-            await step.context.deleteActivity(step.values.activityId);
-        }
+        // console.log(step.values.intent);
+        // if(step.values.intent==="verified"){
+        //     console.log(step.values.activityId)
+        //     await step.context.deleteActivity(step.values.activityId);
+        // }
         if(step.values.intent==="wrong_otp"){
             step.options.case='not_verified';
             step.options.info=step.values.email;
@@ -121,7 +131,7 @@ class educationSurvey extends HelpandCancel{
         const name=step.values.name !== undefined ? step.values.name :step.options.name;
         const email=step.values.email !== undefined ? step.values.email :step.options.info;
         console.log("name and email",name,email);
-
+        console.log("step.context.activity.value",step.context.activity.value);
         const {qualification,college,grades,placed,package_,invested,campus_rating,opinion}= step.context.activity.value;
         const save = await saveEducationSurvey(name,email,qualification,college,grades,placed,package_,invested,campus_rating,opinion)
 
@@ -149,7 +159,7 @@ class educationSurvey extends HelpandCancel{
     }
 }
 
-module.exports = {educationSurvey,EDUCATIONAL_SURVEY}
+module.exports = {populationSurvey,POPULATION_SURVEY}
 
 
 

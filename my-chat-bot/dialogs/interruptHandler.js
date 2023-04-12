@@ -12,7 +12,6 @@ class HelpandCancel extends ComponentDialog {
         }
         return await super.onContinueDialog(innerDc);
     }
-
     async interrupt(innerDc){
         if(innerDc.context.activity.text){
             const text= innerDc.context.activity.text.toLowerCase();
@@ -35,6 +34,10 @@ class HelpandCancel extends ComponentDialog {
                         })
                         return await innerDc.cancelAllDialogs();
                 }
+                default: await innerDc.context.sendActivity({
+                    attachments:[CardFactory.adaptiveCard(startCard)]
+                   })
+                   return await innerDc.cancelAllDialogs();
             }
         }
     }   
